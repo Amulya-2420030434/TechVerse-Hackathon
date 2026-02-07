@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DevRush</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Inter,system-ui,Segoe UI,Arial;
+}
+
+body{
+  min-height:100vh;
+  background:radial-gradient(circle at top,#0f172a,#020617);
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* NAVBAR */
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:22px 60px;
+}
+
+nav .title{
+  font-size:18px;
+  font-weight:600;
+}
+
+nav span{opacity:.6}
+
+nav button{
+  padding:10px 28px;
+  border-radius:25px;
+  border:none;
+  background:linear-gradient(135deg,#6366f1,#38bdf8);
+  color:#fff;
+  cursor:pointer;
+}
+
+/* GLASS */
+.glass{
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(18px);
+  border-radius:20px;
+  box-shadow:0 30px 80px rgba(0,0,0,.6);
+}
+
+/* HERO */
+.hero{
+  text-align:center;
+  margin-top:90px;
+}
+
+.hero-box{
+  display:inline-block;
+  padding:55px 90px;
+}
+
+.hero h1{font-size:42px;margin-bottom:12px}
+.hero p{opacity:.7}
+
+/* STATS */
+.stats{
+  display:flex;
+  justify-content:center;
+  gap:70px;
+  margin-top:80px;
+}
+
+.stats strong{font-size:30px}
+.stats span{display:block;opacity:.6}
+
+/* FEATURES */
+.features{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  margin:130px 0 120px;
+}
+
+.feature{
+  width:260px;
+  padding:32px;
+  text-align:center;
+}
+
+.feature span{font-size:14px;opacity:.7}
+
+.active{
+  background:linear-gradient(135deg,#6366f1,#38bdf8);
+}
+
+/* MODULES */
+.modules{text-align:center;margin-bottom:120px}
+.modules h2{margin-bottom:45px;font-size:28px}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,240px);
+  gap:30px;
+  justify-content:center;
+}
+
+.module{padding:26px}
+
+/* FOOTER */
+footer{
+  margin-bottom:30px;
+  text-align:center;
+  font-size:14px;
+  opacity:.6;
+}
+
+/* OVERLAYS */
+.overlay{
+  position:fixed;
+  inset:0;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:1000;
+}
+
+.overlay.active{display:flex}
+
+/* PREPARING */
+.preparing{
+  background:radial-gradient(circle at top,#0f172a,#020617);
+}
+
+.loader{
+  width:40px;
+  height:40px;
+  border:4px solid rgba(255,255,255,.3);
+  border-top-color:#38bdf8;
+  border-radius:50%;
+  margin:0 auto 20px;
+  animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+  to{transform:rotate(360deg)}
+}
+
+.skip{
+  color:#38bdf8;
+  cursor:pointer;
+  margin-top:15px;
+  display:inline-block;
+}
+
+/* UNLOCKED */
+.unlocked{
+  background:linear-gradient(135deg,#6366f1,#38bdf8);
+}
+
+.unlocked-card{
+  background:#fff;
+  color:#000;
+  padding:50px 90px;
+  border-radius:20px;
+  text-align:center;
+}
+
+/* SCROLL ANIMATION */
+.reveal{
+  opacity:0;
+  transform:translateY(60px);
+  transition:all .8s ease;
+}
+
+.reveal.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.reveal.delay1{transition-delay:.1s}
+.reveal.delay2{transition-delay:.2s}
+.reveal.delay3{transition-delay:.3s}
+.reveal.delay4{transition-delay:.4s}
+.reveal.delay5{transition-delay:.5s}
+.reveal.delay6{transition-delay:.6s}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="title">DevRush <span>Build. Fix. Escape.</span></div>
+  <button onclick="startChallenge()">Join Now</button>
+</nav>
+
+<section class="hero reveal">
+  <div class="glass hero-box">
+    <h1>Build Under Pressure</h1>
+    <p>Speed, precision, and creativity decide the winner.</p>
+  </div>
+
+  <div class="stats">
+    <div><strong>15+</strong><span>Minutes</span></div>
+    <div><strong>30</strong><span>Points</span></div>
+    <div><strong>1</strong><span>Winner</span></div>
+  </div>
+</section>
+
+<section class="features reveal">
+  <div class="glass feature">
+    Precision<br><span>Exact spacing and alignment.</span>
+  </div>
+  <div class="glass feature active">
+    Speed<br><span>Time works against you.</span>
+  </div>
+  <div class="glass feature">
+    Focus<br><span>No distractions allowed.</span>
+  </div>
+</section>
+
+<section class="modules reveal">
+  <h2>▶ Challenge Modules</h2>
+  <div class="grid">
+    <div class="glass module reveal delay1">Layout Replication</div>
+    <div class="glass module reveal delay2">CSS Styling</div>
+    <div class="glass module active reveal delay3">Glass UI</div>
+    <div class="glass module reveal delay4">Color Theory</div>
+    <div class="glass module reveal delay5">Spacing Logic</div>
+    <div class="glass module reveal delay6">Time Control</div>
+  </div>
+</section>
+
+<footer>© 2026 Indigo Flutter. All rights reserved.</footer>
+
+<!-- PREPARING -->
+<div class="overlay preparing" id="preparing">
+  <div class="glass hero-box">
+    <div class="loader"></div>
+    <h2>Preparing Your Challenge</h2>
+    <p style="opacity:.7;margin-top:8px">You will be redirected in 5 seconds</p>
+    <div class="skip" onclick="unlock()">Skip & Continue</div>
+  </div>
+</div>
+
+<!-- UNLOCKED -->
+<div class="overlay unlocked" id="unlocked">
+  <div class="unlocked-card">
+    <h1>Challenge Unlocked 🚀</h1>
+    <p>Your timer starts now. Good luck!</p>
+  </div>
+</div>
+
+<script>
+/* JOIN FLOW */
+function startChallenge(){
+  document.getElementById("preparing").classList.add("active");
+  setTimeout(unlock,5000);
+}
+
+function unlock(){
+  document.getElementById("preparing").classList.remove("active");
+  document.getElementById("unlocked").classList.add("active");
+}
+
+/* SCROLL REVEAL */
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  });
+},{threshold:0.15});
+
+document.querySelectorAll(".reveal").forEach(el=>{
+  observer.observe(el);
+});
+</script>
+
+</body>
+</html>
